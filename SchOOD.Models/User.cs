@@ -36,17 +36,17 @@ namespace SchOOD.Models
         /// </summary>
         public string CalendarUrl { get; }
 
+
+        /// <summary>
+        ///     是否启用本课程通知
+        /// </summary>
+        public bool EnableNotification { get; init; }
         /// <summary>
         ///     初始化一个用户
         /// </summary>
         /// <param name="name">名字</param>
         /// <param name="id">id</param>
         /// <param name="calendarUrl">日历的地址</param>
-        /// ///
-        /// <summary>
-        ///     是否启用本课程通知
-        /// </summary>
-        public bool EnableNotification { get; init; }
 
         public User(string name, string id, string calendarUrl)
         {

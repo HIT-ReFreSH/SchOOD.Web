@@ -18,6 +18,9 @@ using System;
 
 namespace SchOOD.Models
 {
+    /// <summary>
+    /// 课程信息摘要
+    /// </summary>
     public record CourseSummary
     {
         /// <summary>
@@ -44,11 +47,6 @@ namespace SchOOD.Models
         ///     课程老师摘要，为空则没有
         /// </summary>
         public string? Teacher { get; init; }
-
-        /// <summary>
-        ///     事件Id
-        /// </summary>
-        public Guid EventId { get; init; }
 
         /// <summary>
         ///     课程地点摘要，为空则没有
