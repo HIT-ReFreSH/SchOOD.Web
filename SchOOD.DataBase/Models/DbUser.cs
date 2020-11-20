@@ -13,24 +13,20 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-using System;
+
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SchOOD.Models
 {
     public class DbUser
     {
-        [Key]
-        public long Id { get; set; }
-        [Required]
-        public List<DbUserRule> Rules{ get; set; }
-        [Required]
-        public List<DbCourse> Courses { get; set; }
-        [Required]
-        public string CalendarPath{ get; set; }
+        [Key] public long Id { get; set; }
+
+        [Required] public List<DbUserRule> Rules { get; set; }
+
+        [Required] public List<DbCourse> Courses { get; set; }
+
+        [Required] public string CalendarPath { get; set; }
     }
 }

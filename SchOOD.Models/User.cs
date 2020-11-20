@@ -22,27 +22,32 @@ namespace SchOOD.Models
     public record User
     {
         /// <summary>
-        /// 用户的名字
+        ///     用户的名字
         /// </summary>
         public string Name { get; }
+
         /// <summary>
-        /// 用户的Id
+        ///     用户的Id
         /// </summary>
         public string Id { get; }
+
         /// <summary>
-        /// 用户持有课表的Url
+        ///     用户持有课表的Url
         /// </summary>
         public string CalendarUrl { get; }
+
         /// <summary>
-        /// 初始化一个用户
+        ///     初始化一个用户
         /// </summary>
         /// <param name="name">名字</param>
         /// <param name="id">id</param>
         /// <param name="calendarUrl">日历的地址</param>
-        ///         /// <summary>
-        /// 是否启用本课程通知
+        /// ///
+        /// <summary>
+        ///     是否启用本课程通知
         /// </summary>
         public bool EnableNotification { get; init; }
+
         public User(string name, string id, string calendarUrl)
         {
             Name = name;

@@ -13,12 +13,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using SchOOD.Models;
 
 namespace SchOOD.Web.Controllers
@@ -34,13 +31,15 @@ namespace SchOOD.Web.Controllers
             //TODO
             return NotFound();
         }
+
         [HttpPut]
         [Route("")]
-        public async Task<IActionResult> UpdateSettings([FromBody]User user)
+        public async Task<IActionResult> UpdateSettings([FromBody] User user)
         {
             //TODO
             return NotFound();
         }
+
         [HttpDelete]
         [Route("")]
         public async Task<IActionResult> Logout()

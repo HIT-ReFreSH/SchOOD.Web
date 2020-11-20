@@ -13,6 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
 using System;
 
 namespace SchOOD.Models
@@ -20,25 +21,27 @@ namespace SchOOD.Models
     public record CourseSummary
     {
         /// <summary>
-        /// 课程的来源
+        ///     课程的来源
         /// </summary>
         public CourseSource Source { get; init; }
 
         /// <summary>
-        /// 课程是否被隐藏
+        ///     课程是否被隐藏
         /// </summary>
         public bool Hidden { get; init; }
+
         /// <summary>
-        /// 是否启用本课程通知
+        ///     是否启用本课程通知
         /// </summary>
         public bool EnableNotification { get; init; }
+
         /// <summary>
-        /// 课程的开始时间摘要, 为空则没有
+        ///     课程的开始时间摘要, 为空则没有
         /// </summary>
         public string? StartTime { get; init; }
 
         /// <summary>
-        /// 课程老师摘要，为空则没有
+        ///     课程老师摘要，为空则没有
         /// </summary>
         public string? Teacher { get; init; }
 
@@ -51,6 +54,7 @@ namespace SchOOD.Models
         ///     课程地点摘要，为空则没有
         /// </summary>
         public string? Location { get; init; }
+
         /// <summary>
         ///     初始化一个课程
         /// </summary>

@@ -19,26 +19,28 @@ using System.Collections.Generic;
 
 namespace SchOOD.Models
 {
-
     /// <summary>
     ///     表示一门课程, 它将包含普通的课堂、实验课以及考试。
     /// </summary>
     public record Course
     {
         /// <summary>
-        /// 课程的来源
+        ///     课程的来源
         /// </summary>
         public CourseSource Source { get; init; }
+
         /// <summary>
-        /// 课程包含事件的集合
+        ///     课程包含事件的集合
         /// </summary>
         public SetEqualedReadOnlySet<Guid> Events { get; }
+
         /// <summary>
-        /// 课程是否被隐藏
+        ///     课程是否被隐藏
         /// </summary>
         public bool Hidden { get; init; }
+
         /// <summary>
-        /// 是否启用本课程通知
+        ///     是否启用本课程通知
         /// </summary>
         public bool EnableNotification { get; init; }
 
@@ -70,12 +72,5 @@ namespace SchOOD.Models
         ///     课程Id
         /// </summary>
         public Guid CourseId { get; }
-
-
-
-
-
-
-
     }
 }

@@ -13,22 +13,18 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SchOOD.Models;
 
 namespace SchOOD
 {
     /// <summary>
-    /// 
     /// </summary>
     public static class CourseExtension
     {
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="course"></param>
         /// <param name="rules"></param>
@@ -38,19 +34,19 @@ namespace SchOOD
             //TODO
             throw new NotImplementedException();
         }
+
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="course"></param>
         /// <param name="newCourse"></param>
         /// <returns></returns>
-        public static HashSet<DbUserRule> Diff(this Course course, Course newCourse)
+        public static HashSet<UserRule> Diff(this Course course, Course newCourse)
         {
             //TODO
             throw new NotImplementedException();
         }
+
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="course"></param>
         /// <param name="rules"></param>
@@ -60,8 +56,8 @@ namespace SchOOD
             //TODO
             throw new NotImplementedException();
         }
+
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="courseId"></param>
         /// <returns></returns>
@@ -70,8 +66,8 @@ namespace SchOOD
             //TODO
             throw new NotImplementedException();
         }
+
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="courseId"></param>
         /// <returns></returns>

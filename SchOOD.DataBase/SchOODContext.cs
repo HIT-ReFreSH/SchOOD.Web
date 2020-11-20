@@ -13,7 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-using System;
+
 using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -21,16 +21,12 @@ using SchOOD.Models;
 
 namespace SchOOD
 {
-    public class SchOODContext:DbContext
+    public class SchOODContext : DbContext
     {
         private static IConfigurationRoot? Config { get; } = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("dbsettings.json", true, reloadOnChange: true)
-                .Build();
-
-        public SchOODContext()
-        {
-        }
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("dbsettings.json", true, true)
+            .Build();
 
         public DbSet<DbCourse> Courses { get; set; }
         public DbSet<DbEvent> Events { get; set; }

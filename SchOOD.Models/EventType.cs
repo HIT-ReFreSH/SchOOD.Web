@@ -13,29 +13,26 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SchOOD.Models
 {
     /// <summary>
-    /// 事件类型
+    ///     事件类型
     /// </summary>
     public enum EventType
     {
         /// <summary>
-        /// 这是一个正常的课程
+        ///     这是一个正常的课程
         /// </summary>
         Default = 0,
+
         /// <summary>
-        /// 这是一次实验课
+        ///     这是一次实验课
         /// </summary>
         Experiment = 1,
+
         /// <summary>
-        /// 这是一次考试
+        ///     这是一次考试
         /// </summary>
         Examination = 2
     }

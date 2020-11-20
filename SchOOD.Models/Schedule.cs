@@ -36,6 +36,5 @@ namespace SchOOD.Models
         {
             Courses = new SetEqualedReadOnlySet<Guid>(courses);
         }
-
     }
 }

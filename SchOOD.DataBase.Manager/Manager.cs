@@ -13,23 +13,20 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-using System;
-using SchOOD.Models;
-using SchOOD.DataBase;
-using System.Linq;
 
 namespace SchOOD.DataBase.Manager
 {
     public class Manager
     {
-        static void Main(string[] args)
-        {
-
-        }
-        private SchOODContext Context { get; }
         public Manager()
         {
             Context = new SchOODContext();
+        }
+
+        private SchOODContext Context { get; }
+
+        private static void Main(string[] args)
+        {
         }
     }
 }

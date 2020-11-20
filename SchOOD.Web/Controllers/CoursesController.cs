@@ -13,11 +13,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-using Microsoft.AspNetCore.Mvc;
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SchOOD.Web.Controllers
 {
@@ -32,6 +31,7 @@ namespace SchOOD.Web.Controllers
             //TODO
             return NotFound();
         }
+
         [HttpGet]
         [Route("/All")]
         public async Task<IActionResult> GetAllCourses()
@@ -39,6 +39,7 @@ namespace SchOOD.Web.Controllers
             //TODO
             return NotFound();
         }
+
         [HttpGet]
         [Route("/Hidden")]
         public async Task<IActionResult> GetHiddenCourses()
@@ -46,6 +47,7 @@ namespace SchOOD.Web.Controllers
             //TODO
             return NotFound();
         }
+
         [HttpGet]
         [Route("/Local")]
         public async Task<IActionResult> GetLocalCourses()
@@ -53,6 +55,7 @@ namespace SchOOD.Web.Controllers
             //TODO
             return NotFound();
         }
+
         [HttpGet]
         [Route("/Linked")]
         public async Task<IActionResult> GetLinkedCourses()
@@ -60,13 +63,15 @@ namespace SchOOD.Web.Controllers
             //TODO
             return NotFound();
         }
+
         [HttpGet]
         [Route("/PeekCourse")]
-        public async Task<IActionResult> PeekCourse([FromQuery]Guid id)
+        public async Task<IActionResult> PeekCourse([FromQuery] Guid id)
         {
             //TODO
             return NotFound();
         }
+
         [HttpGet]
         [Route("/PeekSchedule")]
         public async Task<IActionResult> PeekSchedule([FromQuery] Guid id)
@@ -74,6 +79,7 @@ namespace SchOOD.Web.Controllers
             //TODO
             return NotFound();
         }
+
         [HttpPost]
         [Route("/LinkSchedule")]
         public async Task<IActionResult> LinkSchedule([FromBody] Guid id)
@@ -81,6 +87,7 @@ namespace SchOOD.Web.Controllers
             //TODO
             return NotFound();
         }
+
         [HttpPost]
         [Route("/LinkCourse")]
         public async Task<IActionResult> LinkCourse([FromBody] Guid id)

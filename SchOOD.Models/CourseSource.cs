@@ -13,28 +13,22 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SchOOD.Models
 {
-
     /// <summary>
-    /// 课程来源
+    ///     课程来源
     /// </summary>
     public enum CourseSource
     {
         /// <summary>
-        /// 是当前用户的课程
+        ///     是当前用户的课程
         /// </summary>
         Local = 0,
+
         /// <summary>
-        /// 是被分享的课程
+        ///     是被分享的课程
         /// </summary>
         Shared = 1
     }
-
 }

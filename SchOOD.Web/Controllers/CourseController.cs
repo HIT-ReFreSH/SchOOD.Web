@@ -13,11 +13,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-using Microsoft.AspNetCore.Mvc;
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using SchOOD.Models;
 
 namespace SchOOD.Web.Controllers
@@ -28,11 +27,12 @@ namespace SchOOD.Web.Controllers
     {
         [HttpGet]
         [Route("/{id}")]
-        public async Task<IActionResult> GetCourse([FromRoute]Guid id)
+        public async Task<IActionResult> GetCourse([FromRoute] Guid id)
         {
             //TODO
             return NotFound();
         }
+
         [HttpGet]
         [Route("/Summary/{id}")]
         public async Task<IActionResult> GetCourseSummary([FromRoute] Guid id)
@@ -40,13 +40,15 @@ namespace SchOOD.Web.Controllers
             //TODO
             return NotFound();
         }
+
         [HttpPut]
         [Route("/{id}")]
-        public async Task<IActionResult> UpdateCourse([FromBody]Course course)
+        public async Task<IActionResult> UpdateCourse([FromBody] Course course)
         {
             //TODO
             return NotFound();
         }
+
         [HttpGet]
         [Route("/Event/{id}")]
         public async Task<IActionResult> GetEvent([FromRoute] Guid id)
@@ -54,6 +56,7 @@ namespace SchOOD.Web.Controllers
             //TODO
             return NotFound();
         }
+
         [HttpPut]
         [Route("/Event/{id}")]
         public async Task<IActionResult> UpdateEvent([FromBody] Event @event)

@@ -13,19 +13,16 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-using SchOOD.Models;
+
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SchOOD.Models;
 
 namespace SchOOD
 {
-    public static class ScheduleExtensions
+    public static class ScheduleExtension
     {
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="user"></param>
         /// <param name="rules"></param>
@@ -35,8 +32,8 @@ namespace SchOOD
             //TODO
             throw new NotImplementedException();
         }
+
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="user"></param>
         /// <param name="rules"></param>
@@ -46,8 +43,8 @@ namespace SchOOD
             //TODO
             throw new NotImplementedException();
         }
+
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="user"></param>
         /// <param name="rules"></param>
@@ -57,8 +54,8 @@ namespace SchOOD
             //TODO
             throw new NotImplementedException();
         }
+
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="user"></param>
         /// <param name="rules"></param>
@@ -68,8 +65,8 @@ namespace SchOOD
             //TODO
             throw new NotImplementedException();
         }
+
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
@@ -78,8 +75,8 @@ namespace SchOOD
             //TODO
             throw new NotImplementedException();
         }
+
         /// <summary>
-        /// 
         /// </summary>
         /// <returns></returns>
         public static string GetScheduleInformation(this long userId)
@@ -87,12 +84,12 @@ namespace SchOOD
             //TODO
             throw new NotImplementedException();
         }
+
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public static HashSet<DbUserRule> LinkScheculeRules(this long userId)
+        public static HashSet<UserRule> LinkScheculeRules(this long userId)
         {
             //TODO
             throw new NotImplementedException();
