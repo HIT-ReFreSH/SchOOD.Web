@@ -32,7 +32,7 @@ namespace SchOOD.Models
         /// <summary>
         ///     课程包含事件的集合
         /// </summary>
-        public SetEqualedReadOnlySet<Guid> Events { get; }
+        public SetEqualedReadOnlySet<Event> Events { get; }
 
         /// <summary>
         ///     课程是否被隐藏
@@ -56,11 +56,11 @@ namespace SchOOD.Models
         /// <param name="events">
         ///     课程所包含所有事件的Id集合
         /// </param>
-        public Course(string name, Guid id, IEnumerable<Guid> events)
+        public Course(string name, Guid id, IEnumerable<Event> events)
         {
             CourseName = name;
-            CourseId = id;
-            Events = new SetEqualedReadOnlySet<Guid>(events);
+            Id = id;
+            Events = new SetEqualedReadOnlySet<Event>(events);
         }
 
         /// <summary>
@@ -71,6 +71,6 @@ namespace SchOOD.Models
         /// <summary>
         ///     课程Id
         /// </summary>
-        public Guid CourseId { get; }
+        public Guid Id { get; }
     }
 }

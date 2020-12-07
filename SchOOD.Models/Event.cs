@@ -41,17 +41,12 @@ namespace SchOOD.Models
         /// <summary>
         ///     事件Id
         /// </summary>
-        public Guid EventId { get; init; }
+        public Guid Id { get; init; }
 
         /// <summary>
         ///     事件执行的地点，为空则没有
         /// </summary>
         public string? Location { get; init; }
-
-        /// <summary>
-        ///     事件所属课程的Id
-        /// </summary>
-        public Guid CourseId { get; init; }
 
         /// <summary>
         ///     事件的长度
@@ -68,7 +63,7 @@ namespace SchOOD.Models
         /// <returns></returns>
         public int CompareTo(Event? other)
         {
-            return EventId.CompareTo(other?.EventId);
+            return Id.CompareTo(other?.Id);
         }
     }
 }

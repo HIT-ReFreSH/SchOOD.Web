@@ -24,7 +24,7 @@ namespace SchOOD.Models
     /// </summary>
     public record Schedule
     {
-        public SetEqualedReadOnlySet<Guid> Courses { get; }
+        public SetEqualedReadOnlySet<CourseSummary> Courses { get; }
 
         /// <summary>
         ///     初始化一张课表
@@ -32,9 +32,9 @@ namespace SchOOD.Models
         /// <param name="courses">
         ///     课表里应包含的课程
         /// </param>
-        public Schedule(IEnumerable<Guid> courses)
+        public Schedule(IEnumerable<CourseSummary> courses)
         {
-            Courses = new SetEqualedReadOnlySet<Guid>(courses);
+            Courses = new SetEqualedReadOnlySet<CourseSummary>(courses);
         }
     }
 }
