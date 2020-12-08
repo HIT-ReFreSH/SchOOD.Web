@@ -22,98 +22,74 @@ using System.Linq;
 
 namespace SchOOD.Web.Controllers
 {
-
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CoursesController : ControllerBase
     {
-        private SchOODContext Database { get; }
-        public CoursesController(SchOODContext database)
-        {
-            Database = database;
-        }
+        
 
         [HttpGet]
         [Route("")]
         public async Task<IActionResult> GetAvailableCourses()
         {
-            return (IActionResult?)(await Database.FetchUser(User))?
-                .GetSchedule().Courses
-                .AsJsonResult() ?? NotFound();
+            
+            return StaticResource.Courses.Where(c => !c.Hidden).Select(c=>StaticResource.GetSummary(c)).AsJsonResult();
         }
 
         [HttpGet]
-        [Route("/All")]
+        [Route("All")]
         public async Task<IActionResult> GetAllCourses()
         {
-            return (IActionResult?)(await Database.FetchUser(User))?
-                .GetAllCourses().Courses
-                .AsJsonResult() ?? NotFound();
+            return StaticResource.Courses.Select(c => StaticResource.GetSummary(c)).AsJsonResult();
         }
 
         [HttpGet]
-        [Route("/Hidden")]
+        [Route("Hidden")]
         public async Task<IActionResult> GetHiddenCourses()
         {
-            return (IActionResult?)(await Database.FetchUser(User))?
-                .GetHiddenCourses().Courses
-                .AsJsonResult() ?? NotFound();
+            return StaticResource.Courses.Select(c => StaticResource.GetSummary(c)).Where(c => c.Hidden).AsJsonResult();
         }
 
         [HttpGet]
-        [Route("/Local")]
+        [Route("Local")]
         public async Task<IActionResult> GetLocalCourses()
         {
-            return (IActionResult?)(await Database.FetchUser(User))?
-                .GetLocalCourses().Courses
-                .AsJsonResult() ?? NotFound();
+            return StaticResource.Courses.Select(c => StaticResource.GetSummary(c)).Where(c => c.Source == Models.CourseSource.Local).AsJsonResult();
         }
 
         [HttpGet]
-        [Route("/Linked")]
+        [Route("Linked")]
         public async Task<IActionResult> GetLinkedCourses()
         {
-            return (IActionResult?)(await Database.FetchUser(User))?
-                .GetLinkedCourses().Courses
-                .AsJsonResult() ?? NotFound();
+            return StaticResource.Courses.Where(c => c.Source != Models.CourseSource.Local).Select(c => StaticResource.GetSummary(c)).AsJsonResult();
         }
 
         [HttpGet]
-        [Route("/PeekCourse")]
+        [Route("PeekCourse")]
         public async Task<IActionResult> PeekCourse([FromQuery] Guid id)
         {
-            return Ok(await id.GetInformation());
+            return Ok(StaticResource.RandomItemOf("", "Example"));
         }
 
         [HttpGet]
-        [Route("/PeekSchedule")]
+        [Route("PeekSchedule")]
         public async Task<IActionResult> PeekSchedule([FromQuery] long id)
         {
-            return Ok(await id.GetScheduleInformation());
+            return Ok(StaticResource.RandomItemOf("","Example"));
         }
 
         [HttpPost]
-        [Route("/LinkSchedule")]
+        [Route("LinkSchedule")]
         public async Task<IActionResult> LinkSchedule([FromBody] long id)
         {
 
-            var user = await Database.FetchUser(User);
-            if (user == null) return NotFound();
-            await user.UpdateRules(id.LinkScheduleRules());
             return Ok();
         }
 
         [HttpPost]
-        [Route("/LinkCourse")]
+        [Route("LinkCourse")]
         public async Task<IActionResult> LinkCourse([FromBody] Guid id)
         {
-            var user = await Database.FetchUser(User);
-            if (user == null) return NotFound();
-            await user.UpdateRules(
-                new System.Collections.Generic.HashSet<Models.UserRule>(
-                    new[] { id.LinkCourseRule() }
-                    ));
             return Ok();
         }
     }

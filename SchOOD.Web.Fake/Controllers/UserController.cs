@@ -24,26 +24,23 @@ using Microsoft.Extensions.Configuration;
 
 namespace SchOOD.Web.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
-        private SchOODContext Database { get; }
+        /*private SchOODContext Database { get; }
         private IConfiguration Config { get; }
         public UserController(SchOODContext database, IConfiguration configuration)
         {
             Database = database;
             Config = configuration;
-        }
+        }*/
 
         [HttpGet]
         [Route("")]
         public async Task<IActionResult> Login()
         {
-            var user = await Database.FetchUser(User);
-            if (user == null) return NotFound();
-            return new JsonResult(user.Convert(User.GetName()));
+            return StaticResource.User.AsJsonResult();
         }
 
 
@@ -52,11 +49,7 @@ namespace SchOOD.Web.Controllers
         [Route("")]
         public async Task<IActionResult> UpdateSettings([FromBody] User user)
         {
-            var localUser = await Database.FetchUser(User);
-            if (localUser == null) return NotFound();
-            await localUser.UpdateRules(
-                localUser.Convert(User.GetName())
-                    .Diff(user));
+            StaticResource.User = user;
                
             return Ok();
         }
@@ -65,12 +58,7 @@ namespace SchOOD.Web.Controllers
         [Route("")]
         public async Task<IActionResult> Logout()
         {
-            // Removes the user's auth cookie for this site and domain. 
-            await HttpContext.SignOutAsync();
-
-            // Do a full CAS logout.  
-            // This removes the user's CAS auth cookie from the CAS domain.
-            return Redirect($"{Config["CasBaseUrl"]}/logout");
+            return Ok();
         }
     }
 }

@@ -24,7 +24,7 @@ using System.Linq;
 namespace SchOOD.Web.Controllers
 {
     [Authorize]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class CourseController : ControllerBase
     {

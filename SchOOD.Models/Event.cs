@@ -26,7 +26,7 @@ namespace SchOOD.Models
         /// <summary>
         ///     课程的开始时间
         /// </summary>
-        public DateTime StartTime { get; init; }
+        public long StartTime { get; init; }
 
         /// <summary>
         ///     事件是否被隐藏

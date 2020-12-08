@@ -95,5 +95,16 @@ namespace SchOOD
             //TODO
             throw new NotImplementedException();
         }
+
+        public static DateTime AsDateTime(this long jsTime)
+        {
+            var s = TimeZoneInfo.ConvertTimeFromUtc(new DateTime(1970, 1, 1), TimeZoneInfo.Local);
+            return s.AddMilliseconds(jsTime);
+        }
+        public static long AsJavaScriptTimeStamp(this DateTime time)
+        {
+            var s= TimeZoneInfo.ConvertTimeFromUtc(new DateTime(1970, 1, 1),TimeZoneInfo.Local);
+            return (long)(time - s).TotalMilliseconds;
+        }
     }
 }
