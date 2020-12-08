@@ -32,7 +32,7 @@ namespace SchOOD
         /// <param name="id"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static User Convert(this DbUser user, IEnumerable<DbUserRule> rules, string id, string name)
+        public static User Convert(this DbUser user, string name)
         {
             //TODO
             throw new NotImplementedException();

@@ -16,6 +16,7 @@ limitations under the License.
 
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using SchOOD.Models;
 
 namespace SchOOD
@@ -61,7 +62,7 @@ namespace SchOOD
         /// </summary>
         /// <param name="courseId"></param>
         /// <returns></returns>
-        public static string GetInformation(this Guid courseId)
+        public static async Task<string> GetInformation(this Guid courseId)
         {
             //TODO
             throw new NotImplementedException();
@@ -71,7 +72,7 @@ namespace SchOOD
         /// </summary>
         /// <param name="courseId"></param>
         /// <returns></returns>
-        public static DbUserRule LinkCourseRule(this Guid courseId)
+        public static UserRule LinkCourseRule(this Guid courseId)
         {
             //TODO
             throw new NotImplementedException();

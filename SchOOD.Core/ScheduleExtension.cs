@@ -16,6 +16,7 @@ limitations under the License.
 
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using SchOOD.Models;
 
 namespace SchOOD
@@ -25,9 +26,9 @@ namespace SchOOD
         /// <summary>
         /// </summary>
         /// <param name="user"></param>
-        /// <param name="rules"></param>
+
         /// <returns></returns>
-        public static Schedule GetSchedule(this DbUser user, IEnumerable<DbUserRule> rules)
+        public static Schedule GetSchedule(this DbUser user)
         {
             //TODO
             throw new NotImplementedException();
@@ -36,9 +37,9 @@ namespace SchOOD
         /// <summary>
         /// </summary>
         /// <param name="user"></param>
-        /// <param name="rules"></param>
+
         /// <returns></returns>
-        public static Schedule GetLinkedCourses(this DbUser user, IEnumerable<DbUserRule> rules)
+        public static Schedule GetLinkedCourses(this DbUser user)
         {
             //TODO
             throw new NotImplementedException();
@@ -47,9 +48,9 @@ namespace SchOOD
         /// <summary>
         /// </summary>
         /// <param name="user"></param>
-        /// <param name="rules"></param>
+
         /// <returns></returns>
-        public static Schedule GetAllCourses(this DbUser user, IEnumerable<DbUserRule> rules)
+        public static Schedule GetAllCourses(this DbUser user)
         {
             //TODO
             throw new NotImplementedException();
@@ -58,9 +59,9 @@ namespace SchOOD
         /// <summary>
         /// </summary>
         /// <param name="user"></param>
-        /// <param name="rules"></param>
+
         /// <returns></returns>
-        public static Schedule GetHiddenCourses(this DbUser user, IEnumerable<DbUserRule> rules)
+        public static Schedule GetHiddenCourses(this DbUser user)
         {
             //TODO
             throw new NotImplementedException();
@@ -79,7 +80,7 @@ namespace SchOOD
         /// <summary>
         /// </summary>
         /// <returns></returns>
-        public static string GetScheduleInformation(this long userId)
+        public static async Task<string> GetScheduleInformation(this long userId)
         {
             //TODO
             throw new NotImplementedException();
@@ -89,7 +90,7 @@ namespace SchOOD
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public static HashSet<UserRule> LinkScheculeRules(this long userId)
+        public static HashSet<UserRule> LinkScheduleRules(this long userId)
         {
             //TODO
             throw new NotImplementedException();

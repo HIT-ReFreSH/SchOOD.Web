@@ -16,84 +16,105 @@ limitations under the License.
 
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace SchOOD.Web.Controllers
 {
+
+    [Authorize]
     [Route("[controller]")]
     [ApiController]
     public class CoursesController : ControllerBase
     {
+        private SchOODContext Database { get; }
+        public CoursesController(SchOODContext database)
+        {
+            Database = database;
+        }
+
         [HttpGet]
         [Route("")]
         public async Task<IActionResult> GetAvailableCourses()
         {
-            //TODO
-            return NotFound();
+            return (IActionResult?)(await Database.FetchUser(User))?
+                .GetSchedule().Courses
+                .AsJsonResult() ?? NotFound();
         }
 
         [HttpGet]
         [Route("/All")]
         public async Task<IActionResult> GetAllCourses()
         {
-            //TODO
-            return NotFound();
+            return (IActionResult?)(await Database.FetchUser(User))?
+                .GetAllCourses().Courses
+                .AsJsonResult() ?? NotFound();
         }
 
         [HttpGet]
         [Route("/Hidden")]
         public async Task<IActionResult> GetHiddenCourses()
         {
-            //TODO
-            return NotFound();
+            return (IActionResult?)(await Database.FetchUser(User))?
+                .GetHiddenCourses().Courses
+                .AsJsonResult() ?? NotFound();
         }
 
         [HttpGet]
         [Route("/Local")]
         public async Task<IActionResult> GetLocalCourses()
         {
-            //TODO
-            return NotFound();
+            return (IActionResult?)(await Database.FetchUser(User))?
+                .GetLocalCourses().Courses
+                .AsJsonResult() ?? NotFound();
         }
 
         [HttpGet]
         [Route("/Linked")]
         public async Task<IActionResult> GetLinkedCourses()
         {
-            //TODO
-            return NotFound();
+            return (IActionResult?)(await Database.FetchUser(User))?
+                .GetLinkedCourses().Courses
+                .AsJsonResult() ?? NotFound();
         }
 
         [HttpGet]
         [Route("/PeekCourse")]
         public async Task<IActionResult> PeekCourse([FromQuery] Guid id)
         {
-            //TODO
-            return NotFound();
+            return Ok(await id.GetInformation());
         }
 
         [HttpGet]
         [Route("/PeekSchedule")]
-        public async Task<IActionResult> PeekSchedule([FromQuery] Guid id)
+        public async Task<IActionResult> PeekSchedule([FromQuery] long id)
         {
-            //TODO
-            return NotFound();
+            return Ok(await id.GetScheduleInformation());
         }
 
         [HttpPost]
         [Route("/LinkSchedule")]
-        public async Task<IActionResult> LinkSchedule([FromBody] Guid id)
+        public async Task<IActionResult> LinkSchedule([FromBody] long id)
         {
-            //TODO
-            return NotFound();
+
+            var user = await Database.FetchUser(User);
+            if (user == null) return NotFound();
+            await user.UpdateRules(id.LinkScheduleRules());
+            return Ok();
         }
 
         [HttpPost]
         [Route("/LinkCourse")]
         public async Task<IActionResult> LinkCourse([FromBody] Guid id)
         {
-            //TODO
-            return NotFound();
+            var user = await Database.FetchUser(User);
+            if (user == null) return NotFound();
+            await user.UpdateRules(
+                new System.Collections.Generic.HashSet<Models.UserRule>(
+                    new[] { id.LinkCourseRule() }
+                    ));
+            return Ok();
         }
     }
 }
