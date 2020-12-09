@@ -80,7 +80,7 @@ namespace SchOOD
         /// <summary>
         /// </summary>
         /// <returns></returns>
-        public static async Task<string> GetScheduleInformation(this long userId)
+        public static async Task<Query> GetScheduleInformation(this long userId)
         {
             //TODO
             throw new NotImplementedException();

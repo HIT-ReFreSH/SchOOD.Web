@@ -62,7 +62,7 @@ namespace SchOOD
         /// </summary>
         /// <param name="courseId"></param>
         /// <returns></returns>
-        public static async Task<string> GetInformation(this Guid courseId)
+        public static async Task<Query> GetInformation(this Guid courseId)
         {
             //TODO
             throw new NotImplementedException();

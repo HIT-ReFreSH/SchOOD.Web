@@ -32,7 +32,7 @@ namespace SchOOD.Models
         /// <summary>
         ///     课程包含事件的集合
         /// </summary>
-        public SetEqualedReadOnlySet<Event> Events { get; }
+        public IEnumerable<Event> Events { get; }
 
         /// <summary>
         ///     课程是否被隐藏
@@ -47,7 +47,7 @@ namespace SchOOD.Models
         /// <summary>
         ///     初始化一个课程
         /// </summary>
-        /// <param name="name">
+        /// <param name="courseName">
         ///     课程名称
         /// </param>
         /// <param name="id">
@@ -56,11 +56,24 @@ namespace SchOOD.Models
         /// <param name="events">
         ///     课程所包含所有事件的Id集合
         /// </param>
-        public Course(string name, Guid id, IEnumerable<Event> events)
+        /// <param name="source">
+        /// 课程来源
+        /// </param>
+        /// <param name="hidden">
+        /// 课程是否被隐藏
+        /// </param>
+        /// <param name="enableNotification">
+        /// 课程是否启用通知
+        /// </param>
+        public Course(string courseName, Guid id, IEnumerable<Event> events,
+            CourseSource source = default, bool hidden = default, bool enableNotification = default)
         {
-            CourseName = name;
+            CourseName = courseName;
             Id = id;
             Events = new SetEqualedReadOnlySet<Event>(events);
+            Source = source;
+            Hidden = hidden;
+            EnableNotification = enableNotification;
         }
 
         /// <summary>

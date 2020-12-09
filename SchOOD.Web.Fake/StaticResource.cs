@@ -9,6 +9,15 @@ namespace SchOOD.Web
 {
     public class StaticResource
     {
+        public static void AddCourse()
+        {
+            var c = GenerateCourse();
+            Courses.Add(c);
+            foreach (var @event in c.Events)
+            {
+                Events.Add(@event);
+            }
+        }
         public static T RandomItemOf<T>(params T[] args)
         {
             Random r = new();
@@ -59,12 +68,7 @@ namespace SchOOD.Web
         {
             for (int i = 0; i < 20; i++)
             {
-                var c = GenerateCourse();
-                Courses.Add(c);
-                foreach (var @event in c.Events)
-                {
-                    Events.Add(@event);
-                }
+                AddCourse();
             }
         }
 

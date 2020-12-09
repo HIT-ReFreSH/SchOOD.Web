@@ -48,9 +48,10 @@ namespace SchOOD.Web.Controllers
         public async Task<IActionResult> UpdateCourse([FromBody] Course course)
         {
             var c = StaticResource.Courses.FirstOrDefault(c => c.Id == course.Id);
-            if(c!=null)
+            if (c != null)
                 StaticResource.Courses.Remove(c);
-            StaticResource.Courses.Add(course);
+            if (!(c != null && c.Source == CourseSource.Shared && c.Hidden))
+                StaticResource.Courses.Add(course);
             return Ok();
 
         }
@@ -66,7 +67,7 @@ namespace SchOOD.Web.Controllers
         [Route("Event/{id}")]
         public async Task<IActionResult> UpdateEvent([FromBody] Event @event)
         {
-            var e= StaticResource.Events.FirstOrDefault(c => c.Id == @event.Id);
+            var e = StaticResource.Events.FirstOrDefault(c => c.Id == @event.Id);
             if (e != null)
                 StaticResource.Events.Remove(e);
             StaticResource.Events.Add(@event);

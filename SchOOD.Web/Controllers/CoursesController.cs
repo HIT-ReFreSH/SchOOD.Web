@@ -83,19 +83,19 @@ namespace SchOOD.Web.Controllers
         [Route("/PeekCourse")]
         public async Task<IActionResult> PeekCourse([FromQuery] Guid id)
         {
-            return Ok(await id.GetInformation());
+            return (await id.GetInformation()).AsJsonResult();
         }
 
         [HttpGet]
         [Route("/PeekSchedule")]
         public async Task<IActionResult> PeekSchedule([FromQuery] long id)
         {
-            return Ok(await id.GetScheduleInformation());
+            return (await id.GetScheduleInformation()).AsJsonResult();
         }
 
-        [HttpPost]
-        [Route("/LinkSchedule")]
-        public async Task<IActionResult> LinkSchedule([FromBody] long id)
+        [HttpGet]
+        [Route("LinkSchedule")]
+        public async Task<IActionResult> LinkSchedule([FromQuery] long id)
         {
 
             var user = await Database.FetchUser(User);
@@ -104,9 +104,9 @@ namespace SchOOD.Web.Controllers
             return Ok();
         }
 
-        [HttpPost]
-        [Route("/LinkCourse")]
-        public async Task<IActionResult> LinkCourse([FromBody] Guid id)
+        [HttpGet]
+        [Route("LinkCourse")]
+        public async Task<IActionResult> LinkCourse([FromQuery] Guid id)
         {
             var user = await Database.FetchUser(User);
             if (user == null) return NotFound();

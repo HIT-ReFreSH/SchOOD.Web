@@ -19,6 +19,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using SchOOD.Models;
 
 namespace SchOOD.Web.Controllers
 {
@@ -26,7 +27,12 @@ namespace SchOOD.Web.Controllers
     [ApiController]
     public class CoursesController : ControllerBase
     {
-        
+        private static QueryResult[] QueryResults =
+        {
+            QueryResult.Available,
+            QueryResult.NotFound,
+            QueryResult.Forbidden
+        };
 
         [HttpGet]
         [Route("")]
@@ -68,28 +74,38 @@ namespace SchOOD.Web.Controllers
         [Route("PeekCourse")]
         public async Task<IActionResult> PeekCourse([FromQuery] Guid id)
         {
-            return Ok(StaticResource.RandomItemOf("", "Example"));
+            return new Query
+            {
+                Value = "Example",
+                Result = StaticResource.RandomItemOf(QueryResults)
+            }.AsJsonResult();
         }
 
         [HttpGet]
         [Route("PeekSchedule")]
         public async Task<IActionResult> PeekSchedule([FromQuery] long id)
         {
-            return Ok(StaticResource.RandomItemOf("","Example"));
+            return new Query
+            {
+                Value="Example",
+                Result=StaticResource.RandomItemOf(QueryResults)
+            }.AsJsonResult();
+
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("LinkSchedule")]
-        public async Task<IActionResult> LinkSchedule([FromBody] long id)
+        public async Task<IActionResult> LinkSchedule([FromQuery] long id)
         {
-
+            StaticResource.Initilize();
             return Ok();
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("LinkCourse")]
-        public async Task<IActionResult> LinkCourse([FromBody] Guid id)
+        public async Task<IActionResult> LinkCourse([FromQuery] Guid id)
         {
+            StaticResource.AddCourse();
             return Ok();
         }
     }
